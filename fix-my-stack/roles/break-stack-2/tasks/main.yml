@@ -1,0 +1,9 @@
+---
+
+- name: Stop openstack service
+  command: ansible "{{ containernam1 }}" -m shell -a "service {{ servicenam }} stop" -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"
+  ignore_errors: yes
+  
+- name: Disable Nova service
+  command: ansible "{{ containernam2 }}" -m shell -a "openstack --os-cloud={{ CLOUD_NAME }} service set --disable {{ disableserv }}" 
+           -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"

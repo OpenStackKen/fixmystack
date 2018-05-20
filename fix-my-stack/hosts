@@ -1,0 +1,26 @@
+[localhost]
+localhost ansible_connection=local
+
+[allinoneA]
+082108-student01
+082108-student03
+082108-student05
+082108-student07
+082108-student09
+082108-student11
+082108-student13
+082108-student15
+082108-student17
+082108-student19
+
+[allinoneB]
+082108-student02
+082108-student04
+082108-student06
+082108-student08
+082108-student10
+082108-student12
+082108-student14
+082108-student16
+082108-student18
+082108-student20

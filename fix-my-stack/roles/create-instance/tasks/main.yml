@@ -1,0 +1,21 @@
+---
+
+- name: Download cloud image
+  command: ansible "{{ containername }}" -m shell -a "wget http://download.cirros-cloud.net/0.3.3/cirros-0.3.3-x86_64-disk.img -O /usr/share/cirros-0.3.3-x86_64-disk.img" 
+           -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"
+  
+- name: Import image to Glance
+  command: ansible "{{ containername }}" -m shell -a "openstack --os-cloud={{ CLOUD_NAME }} image create --public --container-format=bare --disk-format=qcow2 --file=/usr/share/cirros-0.3.3-x86_64-disk.img cirros-0.3.3" 
+           -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"
+
+- name: Create new private network
+  command: ansible "{{ containername }}" -m shell -a "openstack --os-cloud={{ CLOUD_NAME }} network create --share private-network" 
+           -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"
+
+- name: Create new private network subnet
+  command: ansible "{{ containername }}" -m shell -a "neutron --os-cloud={{ CLOUD_NAME }} subnet-create private-network --name=subnet-private --gateway=10.1.100.1 10.1.100.0/24" 
+           -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"
+
+- name: Create cloud instances
+  command: ansible "{{ containername }}" -m shell -a "openstack --os-cloud={{ CLOUD_NAME }} server create --flavor=m1.small --image=cirros-0.3.3 --security-group=default --max=2 fixmystack" 
+           -i "/opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py"

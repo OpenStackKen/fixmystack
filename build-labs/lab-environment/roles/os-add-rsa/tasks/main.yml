@@ -1,0 +1,25 @@
+---
+
+- name: Create stanley st2 user
+  shell: useradd stanley
+
+- name: Configure stanley ssh
+  command: mkdir -p /home/stanley/.ssh
+  
+- name: ssh directory file permissions
+  command: chmod 0700 /home/stanley/.ssh
+
+- name: Add public key to hosts authorized_keys file
+  copy: src=stanley_rsa.pub dest=/opt mode=0644
+
+- name: Insert additional entries into authorized_keys file
+  shell: chdir=/opt cat /opt/stanley_rsa.pub >> /home/stanley/.ssh/authorized_keys
+
+- name: Fix authorized_keys permissions
+  command: chmod 0600 /home/stanley/.ssh/authorized_keys
+
+- name: Fix home directory permissions
+  command: chown -R stanley:stanley /home/stanley
+
+- name: Add student user to sudo file
+  shell: "echo 'stanley    ALL=(ALL)       NOPASSWD: SETENV: ALL' >> /etc/sudoers.d/st2"

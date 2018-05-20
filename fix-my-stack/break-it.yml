@@ -1,0 +1,14 @@
+---
+# This playbook used to break a perfectly good OpenStack cloud 
+
+- hosts: allinoneA
+  remote_user: root
+  become: true
+  roles:
+    - break-stack-1
+    
+- hosts: allinoneB
+  remote_user: root
+  become: true
+  roles:
+    - break-stack-2

@@ -1,0 +1,7 @@
+[localhost]
+localhost ansible_connection=local
+
+[os-servers]
+#082108-student01
+082108-student[01:20]
+

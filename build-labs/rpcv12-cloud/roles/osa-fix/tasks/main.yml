@@ -1,0 +1,4 @@
+---
+
+- name: Fix mariadb-galera package list
+  shell: chdir=/bin sed -i '/qpress/d' /etc/ansible/roles/galera_server/vars/ubuntu-14.04.yml

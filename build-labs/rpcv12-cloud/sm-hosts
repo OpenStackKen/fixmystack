@@ -1,0 +1,9 @@
+[localhost]
+localhost ansible_connection=local
+
+[allinone]
+082108-student01
+#082108-student[03:10]
+
+[allinone01]
+082108-student01

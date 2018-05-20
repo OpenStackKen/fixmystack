@@ -1,0 +1,8 @@
+---
+# This playbook deploys base environment for Openstack Kilo. 
+
+- hosts: allinone 
+  remote_user: root
+  become: true
+  roles:
+    - osa-fix

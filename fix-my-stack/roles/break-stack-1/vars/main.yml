@@ -1,0 +1,6 @@
+---
+containernam1: neutron_linuxbridge_agent
+containernam2: utility
+servicenam: neutron-linuxbridge-agent
+qoptions: [ '--instances=2' ]
+tenantname: [ 'admin'  ]

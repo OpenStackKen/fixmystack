@@ -1,0 +1,122 @@
+---
+# This playbook deploys base environment for Openstack Kilo. 
+
+- hosts: allinone01
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+
+- hosts: allinone02
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone03
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone04
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+
+- hosts: allinone05
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone06
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone07
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone08
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone09
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone10
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone11
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone12
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone13
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone14
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone15
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone16
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone17
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone18
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone19
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
+    
+- hosts: allinone20
+  remote_user: root
+  become: true
+  roles:
+    - network-setup
